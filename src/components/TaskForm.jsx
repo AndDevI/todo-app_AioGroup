@@ -28,38 +28,38 @@ function TaskForm({ onAddTask }) {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+    <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md mb-4">
       <form onSubmit={handleSubmit}>
         {/* Campo de título */}
         <div className="mb-4">
-          <label className="block mb-2">Título:</label>
+          <label className="block mb-2 text-sm sm:text-base">Título:</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-sm sm:text-base"
             required
           />
         </div>
 
         {/* Campo de descrição */}
         <div className="mb-4">
-          <label className="block mb-2">Descrição:</label>
+          <label className="block mb-2 text-sm sm:text-base">Descrição:</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-sm sm:text-base"
             required
           />
         </div>
 
         {/* Campo de status */}
         <div className="mb-4">
-          <label className="block mb-2">Status:</label>
+          <label className="block mb-2 text-sm sm:text-base">Status:</label>
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-sm sm:text-base"
           >
             <option value="não completa">Não completa</option>
             <option value="completa">Completa</option>
@@ -67,9 +67,9 @@ function TaskForm({ onAddTask }) {
         </div>
 
         {/* Botão de submit */}
-        <button 
+        <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 text-sm sm:text-base"
         >
           Adicionar Tarefa
         </button>

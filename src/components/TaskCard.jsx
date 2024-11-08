@@ -30,7 +30,7 @@ function TaskCard({ task, onDelete, onStatusChange, onEdit }) {
     <div className="bg-white p-4 rounded-lg shadow-md mb-4">
       {/* Título da tarefa */}
       {!isEditing ? (
-        <h3 className={`text-xl mb-2 ${task.status === 'completa' ? 'line-through' : ''}`}>
+        <h3 className={`text-xl sm:text-lg md:text-xl mb-2 ${task.status === 'completa' ? 'line-through' : ''}`}>
           {task.title}
         </h3>
       ) : (
@@ -39,46 +39,46 @@ function TaskCard({ task, onDelete, onStatusChange, onEdit }) {
           name="title"
           value={editedTask.title}
           onChange={handleEditChange}
-          className="text-xl mb-2 border rounded p-1"
+          className="text-xl sm:text-lg md:text-xl mb-2 border rounded p-1 w-full"
         />
       )}
 
       {/* Descrição da tarefa */}
       {!isEditing ? (
-        <p className="text-gray-600 mb-4">{task.description}</p>
+        <p className="text-gray-600 mb-4 text-sm sm:text-base">{task.description}</p>
       ) : (
         <textarea
           name="description"
           value={editedTask.description}
           onChange={handleEditChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-sm sm:text-base"
         />
       )}
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-center">
         {/* Status da tarefa - Apenas editável no modo de edição */}
         <select
           value={editedTask.status}
           onChange={(e) => setEditedTask({ ...editedTask, status: e.target.value })}
-          className="p-2 border rounded"
+          className="p-2 border rounded mb-2 sm:mb-0 sm:w-40"
           disabled={!isEditing} // Desabilitar se não estiver editando
         >
           <option value="não completa">Não completa</option>
           <option value="completa">Completa</option>
         </select>
 
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 sm:space-x-4">
           {!isEditing ? (
             <button
               onClick={handleEditToggle}
-              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 text-sm sm:text-base"
             >
               Editar
             </button>
           ) : (
             <button
               onClick={handleEditSave}
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm sm:text-base"
             >
               Salvar
             </button>
@@ -87,7 +87,7 @@ function TaskCard({ task, onDelete, onStatusChange, onEdit }) {
           {/* Botão de deletar */}
           <button
             onClick={handleDelete}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 text-sm sm:text-base"
           >
             Excluir
           </button>
